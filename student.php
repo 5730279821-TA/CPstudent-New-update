@@ -15,6 +15,7 @@
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <script type="text/javascript" src="build/js/canvasjs.min.js"></script>
 </head>
 
 <body class="nav-md">
@@ -61,7 +62,66 @@
         DEFINE('STUDENT_YEAR', substr(STUDENT_ID, 0, -8));
     }
    ?>
-   
+
+   <?php
+   //Year2015
+   print("<script type=\"text/javascript\">
+     window.onload = function () {
+       var chart = new CanvasJS.Chart(\"chartContainer\",
+    {
+
+        animationEnabled: true,
+        axisX:{
+            interval: 3
+            // labelAngle : 30,
+            // valueFormatString: \"HHmm'hrs'\"
+
+        },
+        axisY: {
+            title: \"GPAX\"
+        },
+        legend: {
+            verticalAlign: \"bottom\",
+            horizontalAlign: \"center\"
+        },
+
+        data: [{
+            name: \"received\",
+            showInLegend: false,
+            legendMarkerType: \"square\",
+            type: \"area\",
+            color: \"rgba(40,175,101,0.6)\",
+            markerSize: 0,
+
+
+        },
+        {
+            name: \"sent\",
+            showInLegend: false,
+            legendMarkerType: \"square\",
+            type: \"area\",
+            color: \"rgba(0,75,141,0.7)\",
+            markerSize: 0,
+            label: \"\",
+            dataPoints: [
+
+            {label: \"Year1 Term1\", y: 12  },
+            {label: \"Year1 Term2\" , y: 10},
+            {label: \"Year2 Term1\" , y: 3},
+            {label: \"Year2 Term2\" , y: 5},
+            {label: \"Year3 Term1\" , y: 2},
+            {label: \"Year3 Term2\", y: 1},
+            {label: \"Year4 Term1\" , y: 3},
+            {label: \"Year4 Term2\", y: 6}
+            ]
+        }
+        ]
+    });
+    chart.render();
+ }
+   </script>");
+   ?>
+
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col menu_fixed">
@@ -287,7 +347,7 @@
                                                             <div class="message_wrapper">
                                                                 <div class="x_panel">
                                                                     <div class="x_title">
-                                                                        <h2> GPA <small>( IN EACH TERM )</small></h2>
+
                                                                         <div class="col-md-1 col-sm-12 col-xs-12" style="margin: 4px 0px 5px 60px">
                                                                             <?php
                                                                                 printf("<button type=\"button\" class=\"btn btn-success btn-sm\">Status: %s</button>", ucfirst(STUDENT_STATUS));
@@ -297,7 +357,7 @@
                                                                             <button type="button" class="btn btn-info btn-sm">Year 3: Major subject was clear</button>
                                                                         </div>
                                                                         <div class="clearfix"></div>
-                                                                        <div id="chart_plot_02" class="demo-placeholder"></div>
+                                                                        <div id="chartContainer" style="height: 300px; width: 100%;">
                                                                     </div>
                                                                 </div>
                                                             </div>
