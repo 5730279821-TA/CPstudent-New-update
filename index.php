@@ -476,7 +476,7 @@
                                               $timediff = (strtotime(date("Y-m-d")) - strtotime($row["date"])) / (60 * 60 * 24);
                                               if ($timediff <= 7 && $timediff >= 0) {
                                                   if($count%2==0){
-                                                      echo "<tr class=\"even pointer\" onclick=\"window.document.location='student.php';\">";
+                                                      printf("<tr class=\"even pointer\" onclick=\"window.document.location='student.php?login=%s&studentID=%s';\">", $_GET["login"], $row["studentID"]);
                                                       printf("<td ><img src=\"images/%s.jpg\" style=\"width:60px;height:60px;\"></td>",$row["image"]);
                                                       printf("<td >%s</td>
                                                           <td >%s</td>
@@ -490,7 +490,7 @@
                                                       $count = 1;
                                                   }
                                                   else{
-                                                      echo "<tr class=\"odd pointer\" onclick=\"window.document.location='student.php';\">";
+                                                      printf("<tr class=\"odd pointer\" onclick=\"window.document.location='student.php?login=%s&studentID=%s';\">", $_GET["login"], $row["studentID"]);
                                                       printf("<td ><img src=\"images/%s.jpg\" style=\"width:60px;height:60px;\"></td>",$row["image"]);
                                                       printf("<td >%s</td>
                                                               <td >%s</td>

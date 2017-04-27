@@ -221,7 +221,7 @@
 
                                                 if ($gpax < 2 && $credits != 0) {
                                                     if($count%2==0){
-                                                        echo "<tr class=\"even pointer\" onclick=\"window.document.location='student.php';\">";
+                                                      printf("<tr class=\"even pointer\" onclick=\"window.document.location='student.php?login=%s&studentID=%s';\">", $_GET["login"], $row["studentID"]);
                                                         printf("<td ><img src=\"images/%s.jpg\" style=\"width:60px;height:60px;\"></td>",$row["image"]);
                                                         printf("<td >%s</td>
                                                             <td >%s</td>
@@ -230,9 +230,9 @@
                                                             </td>",$row["studentID"],$row["firstName"],$row["lastName"],$gpax);
                                                         echo"</tr>";
                                                         $i++;
-                                                    }   
+                                                    }
                                                     else{
-                                                        echo "<tr class=\"odd pointer\" onclick=\"window.document.location='student.php';\">";
+                                                        printf("<tr class=\"odd pointer\" onclick=\"window.document.location='student.php?login=%s&studentID=%s';\">", $_GET["login"], $row["studentID"]);
                                                         printf("<td ><img src=\"images/%s.jpg\" style=\"width:60px;height:60px;\"></td>",$row["image"]);
                                                         printf("<td >%s</td>
                                                                 <td >%s</td>
@@ -289,7 +289,7 @@
                                                 $score = 100 - $row["scorededuction"];
                                                 if ($score < 70) {
                                                     if($count%2==0){
-                                                        echo "<tr class=\"even pointer\" onclick=\"window.document.location='student.php';\">";
+                                                        printf("<tr class=\"even pointer\" onclick=\"window.document.location='student.php?login=%s&studentID=%s';\">", $_GET["login"], $row["studentID"]);
                                                         printf("<td ><img src=\"images/%s.jpg\" style=\"width:60px;height:60px;\"></td>",$row["image"]);
                                                         printf("<td >%s</td>
                                                             <td >%s</td>
@@ -300,7 +300,7 @@
                                                         $i++;
                                                     }
                                                     else{
-                                                        echo "<tr class=\"odd pointer\" onclick=\"window.document.location='student.php';\">";
+                                                        printf("<tr class=\"odd pointer\" onclick=\"window.document.location='student.php?login=%s&studentID=%s';\">", $_GET["login"], $row["studentID"]);
                                                         printf("<td ><img src=\"images/%s.jpg\" style=\"width:60px;height:60px;\"></td>",$row["image"]);
                                                         printf("<td >%s</td>
                                                                 <td >%s</td>
